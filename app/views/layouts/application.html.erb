@@ -9,6 +9,17 @@
   </head>
 
   <body>
-    <%= yield %>
+  	<nav class="navbar navbar-light bg-faded">
+  		<a href="/" class="navbar-brand">PiChat</a>
+  		<ul class="nav navbar-nav">
+  			<li class="nav-item">
+  				<%= link_to "Create An Account", new_user_path, class: "nav-link" %>
+  			</li>
+  		</ul>
+  	</nav>
+  	<div class="container">
+  		<%= yield %>	
+  	</div>
+    
   </body>
 </html>
