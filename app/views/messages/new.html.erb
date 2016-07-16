@@ -1,0 +1,14 @@
+<h1>New message</h1>
+<%= form_for [@user, @message] do |f| %>
+  <div class="form-group">
+  	<%= f.label :recipient_id, class: "form-control-label" %>
+  	<%= f.select :recipient_id, @users.all.collect{|u| [u.name, u.id]}, class: "form-control"%>
+  </div>
+  <div class="form-group">
+  	<%= f.label :title, class: "form-control-label" %>
+  	<%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="action">
+  	<%= f.submit %>
+  </div>
+<% end %>

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   	if @user = User.find_by(email: params[:email])
   		if @user.authenticate(params[:password])
   			session[:user_id] = @user.id
-  			redirect_to root_path, flash: {success: "Welcome back"}
+  			redirect_to show_path, flash: {success: "Welcome back"}
   		else
   			redirect_to new_session_path, notice: "password is wrong"
   		end

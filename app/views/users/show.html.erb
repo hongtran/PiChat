@@ -1,0 +1,26 @@
+<h1>Your message incoming</h1>
+<%= link_to "New Message", new_user_message_path(current_user), class: "btn btn-secondary" %>
+<%= link_to "Add Friends", alluser_path, class: "btn btn-secondary" %>
+<%= link_to "Sent Messages", sent_path, class: "btn btn-secondary" %>
+<div style="margin-top: 10px;">
+	<table class="table">
+	<thead class="thead thead-default">
+		<th>Message</th>
+		<th>Action</th>
+	</thead>
+	<tbody>
+		<% @messages.each do |message| %>
+		<tr>
+			<% if message.read? %>
+			<td><%= message.title %></td>
+			<td>Already Read</td>
+			<% else %>
+			<td><b><%= message.title %></b></td>
+			<td><%= link_to "Read", message_show_path(:id => message.id), class: "btn btn-secondary"%></td>
+			<% end %>
+			
+		</tr>
+		<% end %>
+	</tbody>
+	</table>
+</div>

@@ -1,0 +1,25 @@
+<h1>All Users</h1>
+<table class="table">
+	<thead class="thead thead-default">
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Create at</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.name %></td>
+			<td><%= user.email %></td>
+			<td><%= time_ago_in_words user.created_at%></td>
+			<% if current_user.friends.exists?(user) %>
+			<td><%= link_to "Remove friend", friendship_destroy_path(:id => current_user.friendships.find_by_friend_id(user)), class: "btn btn-secondary" %></td>
+			<% else %>
+			<td><%= link_to "Add friend", friendship_create_path(:friend_id => user), :method => :get, class: "btn btn-secondary" %></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
