@@ -9,9 +9,9 @@ class MessagesController < ApplicationController
 	def create
 		@recipients = params[:message][:recipient_id]
 		@title = params[:message][:title]
-		@image = params[:message][:image]
+		#@image = params[:message][:image]
 		@recipients.each do |r|
-		@message = current_user.sent_messages.build(:recipient_id => r, :title => @title, :image => @image)
+		@message = current_user.sent_messages.build(:recipient_id => r, :title => @title)
 		@message.save
 		end
 		if @message.errors.any?
