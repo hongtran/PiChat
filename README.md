@@ -1,12 +1,12 @@
-# Homework 2 - *Name of App*
+# Homework 2 - PiChat
 
 **Name of your app** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
 
 Submitted by: **Your Name Here**
 
-Time spent: **X** hours
+Time spent: **24** hours
 
-URL: **Insert your Heroku URL here**
+URL: **http://pinbangchat.herokuapp.com/**
 
 ## User Stories
 
@@ -46,7 +46,7 @@ Here's a walkthrough of implemented user stories:
 
 ![Video Walkthrough](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with http://i.imgur.com/IJYdGnh.gif
 
 ## Notes
 
