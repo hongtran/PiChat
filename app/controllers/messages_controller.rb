@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 	before_action :require_login, only: [:new, :create]
-	
+
 	def new
 		@user = current_user
 		@users = current_user.friends
@@ -9,18 +9,16 @@ class MessagesController < ApplicationController
 	def create
 		@recipients = params[:message][:recipient_id]
 		@title = params[:message][:title]
+		@image = params[:message][:image]
 		@recipients.each do |r|
-			@message = current_user.sent_messages.build(:recipient_id => r, :title => @title)
-			if @message.save
-				flash[:notice] = "create message success"
-			else
-				flash[:error] = "Can not create message, title and recipient can not empty"
-				#render "messages/new"
-			end
+		@message = current_user.sent_messages.build(:recipient_id => r, :title => @title, :image => @image)
+		@message.save
 		end
 		if @message.errors.any?
+			flash[:error] = "Can not create message, title and recipient can not empty"
 			redirect_to new_user_message_path(current_user)
 		else
+			flash[:notice] = "create message success"
 			redirect_to root_path
 		end
 	end

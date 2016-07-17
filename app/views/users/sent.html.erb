@@ -4,6 +4,7 @@
 	<thead class="thead thead-default">
 		<tr>
 			<th>Message</th>
+			<th>Image</th>
 			<th>Time</th>
 		</tr>
 	</thead>
@@ -11,8 +12,9 @@
 		<% @messages.each do |message| %>
 		<tr>
 			<td><%= message.title %></td>
+			<td><%= image_tag message.image_url.to_s if message.image? %></td>
 			<% if message.read? %>
-				<td><%= message.read_at %></td>
+				<td><%= message.read_at.strftime("%d %m %Y %I:%M%p") %></td>
 			<% else %>
 				<td>unread</td>
 			<% end %>
