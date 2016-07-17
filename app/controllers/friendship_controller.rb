@@ -1,4 +1,5 @@
 class FriendshipController < ApplicationController
+  before_action :require_login, only: [:create]
   def create
   	@friendship = current_user.friendships.build(:friend_id => params[:friend_id])
   	if @friendship.save
